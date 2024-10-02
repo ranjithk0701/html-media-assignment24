@@ -1,0 +1,87 @@
+1->
+#include<iostream>
+#include<string>
+#include<vector>
+#include<climits>
+using namespace std;
+int fun(int arr[], int x, int idx, int n){
+    if(idx == n) return x;
+    if(arr[idx] < x){
+        x = arr[idx];
+        return fun(arr, x, idx+1, n);
+    }
+    return fun(arr, x, idx+1, n);
+}
+int main(){
+    int arr[] = {4,2,7,3,9,1,8};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int idx;
+    int x = INT_MAX;
+    cout<<fun(arr, x, 0, n);
+}
+
+2->
+
+#include<iostream>
+#include<string>
+#include<vector>
+#include<climits>
+using namespace std;
+int fun(int arr[], int x, int idx, int n){
+    if(idx == n) return x;
+    return fun(arr, x+arr[idx], idx+1, n);
+}
+int main(){
+    int arr[] = {4,2,7,3,9,1,8};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int idx;
+    int x = 0;
+    cout<<fun(arr, x, 0, n);
+}
+
+3->
+
+#include<string>
+#include<vector>
+#include<climits>
+using namespace std;
+int fun(int arr[], int x, int idx, int n){
+    if(idx == n) return idx;
+    if(arr[idx] == x){
+        return idx;
+    }
+    return fun(arr, x, idx+1, n);
+    
+}
+int main(){
+    int arr[] = {4,2,7,3,9,1,8};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int idx;
+    int x = 1;
+    cout<<fun(arr, x, 0, n);
+}
+
+4->
+
+#include<iostream>
+#include<string>
+#include<vector>
+#include<climits>
+using namespace std;
+void fun(int arr[], int n){
+    if(n == 0){
+        cout<<arr[n];
+         return;
+    }
+    cout<<arr[n]<<" ";
+    fun(arr, n - 1);
+    
+}
+int main(){
+    int arr[] = {4,2,7,3,9,1,8};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    fun(arr, n-1);
+}
+
+5->
+
